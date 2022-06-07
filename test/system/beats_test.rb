@@ -16,7 +16,7 @@ class BeatsTest < ApplicationSystemTestCase
 
     fill_in "Audio", with: @beat.audio
     fill_in "Beat time", with: @beat.beat_time
-    fill_in "Beat titile", with: @beat.beat_titile
+    fill_in "Beat title", with: @beat.beat_title
     fill_in "Memo", with: @beat.memo
     fill_in "Sample artist", with: @beat.sample_artist
     fill_in "Sample title", with: @beat.sample_title
@@ -32,7 +32,7 @@ class BeatsTest < ApplicationSystemTestCase
 
     fill_in "Audio", with: @beat.audio
     fill_in "Beat time", with: @beat.beat_time
-    fill_in "Beat titile", with: @beat.beat_titile
+    fill_in "Beat title", with: @beat.beat_title
     fill_in "Memo", with: @beat.memo
     fill_in "Sample artist", with: @beat.sample_artist
     fill_in "Sample title", with: @beat.sample_title
