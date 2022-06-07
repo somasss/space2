@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Beat titile:</strong>
+  <%= @beat.beat_titile %>
+</p>
+
+<p>
+  <strong>Sample title:</strong>
+  <%= @beat.sample_title %>
+</p>
+
+<p>
+  <strong>Sample artist:</strong>
+  <%= @beat.sample_artist %>
+</p>
+
+<p>
+  <strong>Audio:</strong>
+  <%= @beat.audio %>
+</p>
+
+<p>
+  <strong>Beat time:</strong>
+  <%= @beat.beat_time %>
+</p>
+
+<p>
+  <strong>Memo:</strong>
+  <%= @beat.memo %>
+</p>
+
+<%= link_to 'Edit', edit_beat_path(@beat) %> |
+<%= link_to 'Back', beats_path %>

@@ -1,0 +1,47 @@
+<%= form_with(model: beat, local: true) do |form| %>
+  <% if beat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(beat.errors.count, "error") %> prohibited this beat from being saved:</h2>
+
+      <ul>
+        <% beat.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :beat_titile %>
+    <%= form.text_field :beat_titile %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sample_title %>
+    <%= form.text_field :sample_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sample_artist %>
+    <%= form.text_field :sample_artist %>
+  </div>
+
+  <div class="field">
+    <%= form.label :audio %>
+    <%= form.text_field :audio %>
+  </div>
+
+  <div class="field">
+    <%= form.label :beat_time %>
+    <%= form.number_field :beat_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :memo %>
+    <%= form.text_area :memo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
