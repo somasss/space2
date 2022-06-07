@@ -20,7 +20,7 @@
         <td><%= beat.beat_title %></td>
         <td><%= beat.sample_title %></td>
         <td><%= beat.sample_artist %></td>
-        <td><%= beat.audio %></td>
+        <td><%= audio_tag beat.audio_url, :controls => true if beat.audio? %></td>
         <td><%= beat.beat_time %></td>
         <td><%= beat.memo %></td>
         <td><%= link_to 'Show', beat %></td>

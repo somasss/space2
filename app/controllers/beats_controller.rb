@@ -23,7 +23,8 @@ class BeatsController < ApplicationController
   # POST /beats or /beats.json
   def create
     @beat = Beat.new(beat_params)
-
+    @beat.user_id = current_user.id
+    
     respond_to do |format|
       if @beat.save
         format.html { redirect_to beat_url(@beat), notice: "Beat was successfully created." }
