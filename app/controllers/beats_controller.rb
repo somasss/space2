@@ -1,5 +1,6 @@
 class BeatsController < ApplicationController
   before_action :set_beat, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /beats or /beats.json
   def index
