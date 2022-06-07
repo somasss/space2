@@ -16,7 +16,7 @@
 
 <p>
   <strong>Audio:</strong>
-  <%= @beat.audio %>
+  <%= audio_tag @beat.audio_url, :controls => true if @beat.audio? %>
 </p>
 
 <p>

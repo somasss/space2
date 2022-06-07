@@ -18,11 +18,15 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
+#追加gem
 gem 'devise'
 gem 'rexml'
 gem 'devise-i18n'
 gem 'rails_admin', '~> 3.0'
 gem 'cancancan'
+gem 'carrierwave'
+gem 'cloudinary'
+gem 'dotenv-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
