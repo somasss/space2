@@ -1,0 +1,47 @@
+<h1>Tasks</h1>
+
+<%= month_calendar events: @tasks do |date, tasks| %>
+  <%= date.day %>
+  <% tasks.each do |task| %>
+    <li class="list">
+      <%= link_to edit_task_path(task.id) do %>
+        <%= task.task_title %>
+        <% end %>
+    </li>
+
+
+  <% end %>
+<% end %>
+
+      
+<table>
+  <thead>
+    <tr>
+      <th>Task title</th>
+      <th>Due date</th>
+      <th>Task content</th>
+      <th>Status</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.task_title %></td>
+        <td><%= task.due_date %></td>
+        <td><%= task.task_content %></td>
+        <td><%= task.status %></td>
+        <td><%= task.user_id %></td>
+        <td><%= link_to 'Show', task %></td>
+        <td><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Task', new_task_path %>

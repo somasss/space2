@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  task_title: MyString
+  due_date: 2022-06-10 10:26:19
+  task_content: MyText
+  status: 1
+
+two:
+  task_title: MyString
+  due_date: 2022-06-10 10:26:19
+  task_content: MyText
+  status: 1

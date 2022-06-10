@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :tasks
+  resources :notes
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   resources :beats
