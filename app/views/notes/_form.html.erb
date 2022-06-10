@@ -26,6 +26,19 @@
     <%= form.text_field :youtube %>
   </div>
 
+
+  <div class="check_box">
+  <span>タグ</span>
+  <%= form.collection_check_boxes(:label_ids, Label.all, :id, :name) do |note_label| %>
+   <div>
+     <%= note_label.label do %>
+       <%= note_label.check_box %>
+       <%= note_label.text %>
+     <% end %>
+   </div>
+ <% end %>
+</div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

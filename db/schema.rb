@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_10_012619) do
+ActiveRecord::Schema.define(version: 2022_06_10_085804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,21 @@ ActiveRecord::Schema.define(version: 2022_06_10_012619) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_beats_on_user_id"
+  end
+
+  create_table "labels", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "notelabels", force: :cascade do |t|
+    t.bigint "note_id", null: false
+    t.bigint "label_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["label_id"], name: "index_notelabels_on_label_id"
+    t.index ["note_id"], name: "index_notelabels_on_note_id"
   end
 
   create_table "notes", force: :cascade do |t|
@@ -69,6 +84,8 @@ ActiveRecord::Schema.define(version: 2022_06_10_012619) do
   end
 
   add_foreign_key "beats", "users"
+  add_foreign_key "notelabels", "labels"
+  add_foreign_key "notelabels", "notes"
   add_foreign_key "notes", "users"
   add_foreign_key "tasks", "users"
 end
