@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_10_085804) do
+ActiveRecord::Schema.define(version: 2022_06_12_134733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,15 @@ ActiveRecord::Schema.define(version: 2022_06_10_085804) do
     t.index ["user_id"], name: "index_notes_on_user_id"
   end
 
+  create_table "tasklabels", force: :cascade do |t|
+    t.bigint "task_id", null: false
+    t.bigint "label_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["label_id"], name: "index_tasklabels_on_label_id"
+    t.index ["task_id"], name: "index_tasklabels_on_task_id"
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.string "task_title", null: false
     t.datetime "due_date", null: false
@@ -87,5 +96,7 @@ ActiveRecord::Schema.define(version: 2022_06_10_085804) do
   add_foreign_key "notelabels", "labels"
   add_foreign_key "notelabels", "notes"
   add_foreign_key "notes", "users"
+  add_foreign_key "tasklabels", "labels"
+  add_foreign_key "tasklabels", "tasks"
   add_foreign_key "tasks", "users"
 end

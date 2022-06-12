@@ -4,6 +4,7 @@ class TasksController < ApplicationController
   # GET /tasks or /tasks.json
   def index
     @tasks = Task.all
+    @tasks = params[:label_id].present? ? Label.find(params[:label_id]).tasks : Task.all
   end
 
   # GET /tasks/1 or /tasks/1.json
@@ -66,6 +67,6 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:task_title, :due_date, :task_content, :status, :user_id)
+      params.require(:task).permit(:task_title, :due_date, :task_content, :status, :user_id, label_ids: [])
     end
 end
