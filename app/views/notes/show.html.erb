@@ -16,6 +16,13 @@
 </p>
 
 <p>
+  <strong>Text:</strong>
+  <% @note.labels.each do |note_label| %>
+    <%= note_label.name %>
+  <% end %>
+</p>
+
+<p>
   <strong>User:</strong>
   <%= @note.user_id %>
 </p>

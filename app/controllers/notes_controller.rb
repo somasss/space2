@@ -4,6 +4,7 @@ class NotesController < ApplicationController
   # GET /notes or /notes.json
   def index
     @notes = Note.all
+    @notes = params[:label_id].present? ? Label.find(params[:label_id]).notes : Note.all
   end
 
   # GET /notes/1 or /notes/1.json
@@ -69,6 +70,6 @@ class NotesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def note_params
-      params.require(:note).permit(:note_title, :text, :youtube, :user_id)
+      params.require(:note).permit(:note_title, :text, :youtube, :user_id, label_ids: [])
     end
 end
