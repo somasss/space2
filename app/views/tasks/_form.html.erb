@@ -31,6 +31,18 @@
     <%= form.select :status, Task.statuses.keys, {prompt: "選択してください"} %>
   </div>
 
+  <div class="check_box">
+    <span>タグ</span>
+    <%= form.collection_check_boxes(:label_ids, Label.all, :id, :name) do |tasklabel| %>
+     <div>
+       <%= tasklabel.label do %>
+         <%= tasklabel.check_box %>
+         <%= tasklabel.text %>
+       <% end %>
+     </div>
+   <% end %>
+  </div>
+
 
   <div class="actions">
     <%= form.submit %>
