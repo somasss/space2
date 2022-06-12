@@ -6,3 +6,9 @@ Label.create([
     { name: 'サンマルク'},
     { name: 'コメダ'}
     ])
+
+Category.create([
+    { name: 'スターバックス' },
+    { name: 'ドトール' },
+    { name: 'エクセルシオール'}
+    ])
