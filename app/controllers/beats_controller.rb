@@ -5,6 +5,7 @@ class BeatsController < ApplicationController
   # GET /beats or /beats.json
   def index
     @beats = Beat.all
+    @beats = params[:category_id].present? ?  Category.find(params[:category_id]).beats: Beat.all
   end
 
   # GET /beats/1 or /beats/1.json
@@ -67,6 +68,6 @@ class BeatsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def beat_params
-      params.require(:beat).permit(:beat_title, :sample_title, :sample_artist, :audio, :beat_time, :memo)
+      params.require(:beat).permit(:beat_title, :sample_title, :sample_artist, :audio, :beat_time, :memo, category_ids:[])
     end
 end

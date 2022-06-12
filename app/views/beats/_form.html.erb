@@ -41,6 +41,18 @@
     <%= form.text_area :memo %>
   </div>
 
+  <div class="check_box">
+    <span>カテゴリー</span>
+    <%= form.collection_check_boxes(:category_ids, Category.all, :id, :name) do |beatcategory| %>
+      <div>
+      <%= beatcategory.label do %>
+        <%= beatcategory.check_box %>
+        <%= beatcategory.text %>
+      <% end %>
+      </div>
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

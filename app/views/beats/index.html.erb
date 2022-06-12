@@ -1,10 +1,21 @@
 
+
 <h1>Beats</h1>
+
+<%= form_tag beats_path, method: :get, class: 'boards__searchForm' do %>
+  <%= select_tag :category_id,
+                 options_from_collection_for_select(Category.all, :id, :name, params[:category_id]),
+                 {
+                   prompt: 'タグで絞り込み検索',
+                   onchange: 'submit(this.form);'
+                 }
+  %>
+<% end %>
 
 <table>
   <thead>
     <tr>
-      <th>Beat title</th>
+      <th>Beat titile</th>
       <th>Sample title</th>
       <th>Sample artist</th>
       <th>Audio</th>
@@ -23,6 +34,11 @@
         <td><%= audio_tag beat.audio_url, :controls => true if beat.audio? %></td>
         <td><%= beat.beat_time %></td>
         <td><%= beat.memo %></td>
+        <td>
+        <% beat.categories.each do |beatcategory| %>
+          <%= beatcategory.name %>
+        <% end %>      
+        </td>
         <td><%= link_to 'Show', beat %></td>
         <td><%= link_to 'Edit', edit_beat_path(beat) %></td>
         <td><%= link_to 'Destroy', beat, method: :delete, data: { confirm: 'Are you sure?' } %></td>

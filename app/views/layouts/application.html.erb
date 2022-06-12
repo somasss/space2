@@ -12,7 +12,9 @@
   <body>
 
     <% if user_signed_in? %>
-      <%= link_to "投稿一覧", beats_path %>
+      <%= link_to "ビート", beats_path %>
+      <%= link_to "ノート", notes_path %>
+      <%= link_to "タスク", tasks_path %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to "新規登録", new_user_registration_path %>
@@ -26,6 +28,10 @@
       <p class="alert alert-error"><%= alert %></p>
     <% end %>
 
+    <div style = "width: 500px; float: right;">
+    <script async src="https://cse.google.com/cse.js?cx=951c5d4a5769d41e5"></script>
+    <div class="gcse-search"></div>
+    </div>
 
     <%= yield %>
   </body>
