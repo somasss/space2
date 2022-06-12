@@ -16,6 +16,7 @@
       <%= link_to "ノート", notes_path %>
       <%= link_to "タスク", tasks_path %>
       <%= link_to "アカウント", users_show_path %>
+      <%= link_to "管理画面", rails_admin_path if current_user.admin == true %> 
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to "新規登録", new_user_registration_path %>

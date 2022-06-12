@@ -1,4 +1,4 @@
-<h1>Users/h1>
+<h1>Users</h1>
 
 <h1>about me</h1>
 
@@ -6,5 +6,9 @@
 <%= @user.name %>
 <h3>メールアドレス</h3>
 <%= @user.email %>
-
-
+<h3>総ビート数</h3>
+<%= @user.beats.count %>
+<h3>平均時間</h3>
+<%= @average_time.floor if @average_time.nan?  != true  %>
+<h3>タスク達成率</h3>
+<p><%= @success_task.count %> / <%= @task.count %> </p>

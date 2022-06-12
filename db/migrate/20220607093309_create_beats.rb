@@ -5,7 +5,7 @@ class CreateBeats < ActiveRecord::Migration[6.0]
       t.string :sample_title
       t.string :sample_artist
       t.string :audio
-      t.integer :beat_time
+      t.integer :beat_time, null: false
       t.text :memo
 
       t.timestamps

@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2022_06_12_140438) do
     t.string "sample_title"
     t.string "sample_artist"
     t.string "audio"
-    t.integer "beat_time"
+    t.integer "beat_time", null: false
     t.text "memo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
