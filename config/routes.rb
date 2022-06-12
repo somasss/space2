@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "users/show" => "users#show"
   resources :tasks
   resources :notes
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

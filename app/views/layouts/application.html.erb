@@ -15,6 +15,7 @@
       <%= link_to "ビート", beats_path %>
       <%= link_to "ノート", notes_path %>
       <%= link_to "タスク", tasks_path %>
+      <%= link_to "アカウント", users_show_path %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to "新規登録", new_user_registration_path %>
