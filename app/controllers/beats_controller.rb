@@ -32,7 +32,6 @@ class BeatsController < ApplicationController
         format.json { render :show, status: :created, location: @beat }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @beat.errors, status: :unprocessable_entity }
       end
     end
   end
