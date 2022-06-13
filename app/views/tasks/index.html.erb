@@ -10,6 +10,13 @@
   %>
 <% end %>
 
+<%= search_form_for @q, url: search_tasks_path do |f| %>
+  <%= f.label :task_title_cont, 'タスク名' %>
+  <%= f.search_field :task_title_cont %>
+  <br>
+  <%= f.submit '検索' %>
+<% end %>
+
 <%= month_calendar events: @tasks do |date, tasks| %>
   <%= date.day %>
   <% tasks.each do |task| %>

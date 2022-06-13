@@ -1,10 +1,11 @@
 class NotesController < ApplicationController
   before_action :set_note, only: %i[ show edit update destroy ]
+  before_action :set_q, only: [:index, :search]
 
   # GET /notes or /notes.json
   def index
-    @notes = Note.all
-    @notes = params[:label_id].present? ? Label.find(params[:label_id]).notes : Note.all
+    @notes = Note.all.where(user_id: current_user.id)
+    @notes = params[:label_id].present? ? Label.find(params[:label_id]).notes : @notes
   end
 
   # GET /notes/1 or /notes/1.json
@@ -62,14 +63,22 @@ class NotesController < ApplicationController
     end
   end
 
+  def search
+    @results = @q.result
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_note
-      @note = Note.find(params[:id])
-    end
+  def set_note
+    @note = Note.find(params[:id])
+  end
 
     # Only allow a list of trusted parameters through.
-    def note_params
-      params.require(:note).permit(:note_title, :text, :youtube, :user_id, label_ids: [])
-    end
+  def note_params
+    params.require(:note).permit(:note_title, :text, :youtube, :user_id, label_ids: [])
+  end
+
+  def set_q
+    @q = Note.ransack(params[:q])
+  end 
 end

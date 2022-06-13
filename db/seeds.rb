@@ -1,14 +1,14 @@
 Label.create([
-    { name: 'スターバックス' },
-    { name: 'ドトール' },
-    { name: 'エクセルシオール'},
-    { name: 'タリーズ'},
-    { name: 'サンマルク'},
-    { name: 'コメダ'}
+    { name: 'ドラム' },
+    { name: '上ネタ' },
+    { name: 'ベース'},
+    { name: 'アレンジメント'},
+    { name: 'サウンドチョイス'},
+    { name: 'ミキシング'}
     ])
 
 Category.create([
-    { name: 'スターバックス' },
-    { name: 'ドトール' },
-    { name: 'エクセルシオール'}
+    { name: 'Hiphop' },
+    { name: 'R&B' },
+    { name: 'techno'}
     ])

@@ -1,6 +1,11 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Notes</h1>
+
+<%= search_form_for @q, url: search_notes_path do |f| %>
+  <%= f.label :note_title_cont, 'ノート名' %>
+  <%= f.search_field :note_title_cont %>
+  <br>
+  <%= f.submit '検索' %>
+<% end %>
 
 <table>
   <thead>
@@ -29,7 +34,11 @@
       <tr>
         <td><%= note.note_title %></td>
         <td><%= note.text %></td>
-        <td><iframe width="560" height="315" src="https://www.youtube.com/embed/<%= note.youtube%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+        <td>
+          <%if note.youtube.present?%>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= note.youtube%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <% end%>
+        </td> 
         <td>
           <% note.labels.each do |note_label| %>
             <%= note_label.name %>
