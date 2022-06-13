@@ -1,11 +1,11 @@
 class BeatsController < ApplicationController
   before_action :set_beat, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!
+  before_action :set_q, only: [:index, :search]
 
   # GET /beats or /beats.json
   def index
-    @beats = Beat.all
-    @beats = params[:category_id].present? ?  Category.find(params[:category_id]).beats: Beat.all
+    @beats = Beat.all.where(user_id: current_user.id)
+    @beats = params[:category_id].present? ?  Category.find(params[:category_id]).beats: @beats
   end
 
   # GET /beats/1 or /beats/1.json
@@ -59,14 +59,22 @@ class BeatsController < ApplicationController
     end
   end
 
+  def search
+    @results = @q.result
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_beat
-      @beat = Beat.find(params[:id])
-    end
+  def set_beat
+    @beat = Beat.find(params[:id])
+  end
 
     # Only allow a list of trusted parameters through.
-    def beat_params
-      params.require(:beat).permit(:beat_title, :sample_title, :sample_artist, :audio, :beat_time, :memo, category_ids:[])
-    end
+  def beat_params
+    params.require(:beat).permit(:beat_title, :sample_title, :sample_artist, :audio, :beat_time, :memo, category_ids:[])
+  end
+
+  def set_q
+    @q = Beat.ransack(params[:q])
+  end 
 end

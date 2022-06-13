@@ -11,9 +11,17 @@ class UsersController < ApplicationController
     end
     @average_time = total_time.fdiv(@beats.count)
 
-    #今週に作ったビートを求める式
+    #目標値に対する達成度合いを求める式
+    @current_number = @beats.count.to_f / @target_number * 100
 
+    #今週作ったビートを取得するコード
+    today = Time.now
+    range = today.all_week(:sunday)
+    @weekly_beats = @beats.where(created_at: range)
+  
   end
+
+
 
   private 
 
@@ -22,6 +30,6 @@ class UsersController < ApplicationController
     @task = @user.tasks
     @beats = @user.beats 
     @notes = @user.notes
+    @target_number = 100
   end
-
 end
