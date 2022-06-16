@@ -1,68 +1,67 @@
-<h1>Tasks</h1>
+<main>
 
-<%= form_tag tasks_path, method: :get, class: 'boards__searchForm' do %>
-  <%= select_tag :label_id,
-                 options_from_collection_for_select(Label.all, :id, :name, params[:label_id]),
-                 {
-                   prompt: 'タグで絞り込み検索',
-                   onchange: 'submit(this.form);'
-                 }
-  %>
-<% end %>
-
-<%= search_form_for @q, url: search_tasks_path do |f| %>
-  <%= f.label :task_title_cont, 'タスク名' %>
-  <%= f.search_field :task_title_cont %>
-  <br>
-  <%= f.submit '検索' %>
-<% end %>
-
-<%= month_calendar events: @tasks do |date, tasks| %>
-  <%= date.day %>
-  <% tasks.each do |task| %>
-    <li class="list">
-      <%= link_to edit_task_path(task.id) do %>
-        <%= task.task_title %>
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <h1><%= link_to 'Task', new_task_path, class: "fw-light" %></h1>
+      <%= month_calendar events: @tasks do |date, tasks| %>
+        <%= date.day %>
+        <% tasks.each do |task| %>
+          <li class="list">
+            <%= link_to edit_task_path(task.id) do %>
+              <%= task.task_title %>
+              <% end %>
+          </li>
         <% end %>
-    </li>
+      <% end %>
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <a>
+          <%= search_form_for @q, url: search_tasks_path do |f| %>
+            <%= f.label :task_title_cont, 'タスク名' %>
+            <%= f.search_field :task_title_cont %>
+            <%= f.submit '検索' %>
+              <%= form_tag tasks_path, method: :get, class: 'boards__searchForm' do %>
+                <%= select_tag :label_id,
+                              options_from_collection_for_select(Label.all, :id, :name, params[:label_id]),
+                              {
+                                prompt: 'タグで絞り込み検索',
+                                onchange: 'submit(this.form);'
+                              }
+                %>
+              <% end %>
+          <% end %>
+        </a>
+      </div>
+    </div>
+  </section>
 
 
-  <% end %>
-<% end %>
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <% @tasks.each do |task| %>
+        <div class="col">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h4>Title: <%= task.task_title %></h4><br>
+              <h5>Sample: <%= task.due_date %></h5><br>  
+              <h5>Artist: <%= task.task_content %></h5><br>
+              <h4>Time: <%= task.status %></h4><br>
+              <% task.labels.each do |tasklabel| %>
+                <%= tasklabel.name %>
+              <% end %>  
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <%= link_to 'Show', task, class: "btn btn-sm btn-outline-secondary"%>
+                  <%= link_to 'Edit', edit_task_path(task), class: "btn btn-sm btn-outline-secondary" %>
+                  <%= button_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-outline-secondary" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+  </div>
+</div>
 
-      
-<table>
-  <thead>
-    <tr>
-      <th>Task title</th>
-      <th>Due date</th>
-      <th>Task content</th>
-      <th>Status</th>
-      <th>Label</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td><%= task.task_title %></td>
-        <td><%= task.due_date %></td>
-        <td><%= task.task_content %></td>
-        <td><%= task.status %></td>
-        <td>
-        <% task.labels.each do |tasklabel| %>
-          <%= tasklabel.name %>
-        <% end %>  
-        </td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Task', new_task_path %>
+</main>

@@ -1,18 +1,74 @@
-<h1>Users</h1>
+<main>
 
-<h1>about me</h1>
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1>User</h1>
+        </a>
+      </div>
+    </div>
+  </section>
 
-<h3>ユーザー名</h3>
-<%= @user.name %>
-<h3>メールアドレス</h3>
-<%= @user.email %>
-<h3>総ビート数</h3>
-<%= @user.beats.count %> /<%= @target_number %><br>
-<%= number_to_percentage(@current_number, precision: 0) if @current_number.nan?  != true %>
-<h3>今週のビート数</h3>
-<%= @weekly_beats.count %>
-<h3>平均時間</h3>
-<%= @average_time.floor if @average_time.nan?  != true  %>min
-<h3>タスク達成率</h3>
-<p><%= @success_task.count %> / <%= @task.count %> </p>
+</main>
+
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <div class="col">
+        <div class="card shadow-sm">
+          <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+          <div class="card-body">
+            <p class="card-text">
+            <h1>総ビート数</h1><br>
+            <h1>
+            <%= @user.beats.count %> /<%= @target_number %>
+            <%= number_to_percentage(@current_number, precision: 0) if @current_number.nan?  != true %>
+            </h1>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card shadow-sm">
+          <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+          <div class="card-body">
+            <p class="card-text">
+            <h1>今週のビート数</h1><br>
+            <h1><%= @weekly_beats.count %></h1>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card shadow-sm">
+          <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+          <div class="card-body">
+            <p class="card-text">
+            <h1>平均時間</h1><br>
+            <h1><%= @average_time.floor if @average_time.nan?  != true  %>min</h1>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card shadow-sm">
+          <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+          <div class="card-body">
+            <p class="card-text">
+            <h1>タスク達成率</h1><br>
+            <h1><%= @success_task.count %> / <%= @task.count %></h1>
+            </p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
 

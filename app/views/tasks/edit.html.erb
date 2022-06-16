@@ -1,6 +1,11 @@
-<h1>Editing Task</h1>
-
-<%= render 'form', task: @task %>
-
-<%= link_to 'Show', @task %> |
-<%= link_to 'Back', tasks_path %>
+<div class="album py-5 bg-light">
+  <div class= "edit-form">
+    <div class="box1">
+      <div class="edit-form">
+        <%= render 'form', task: @task %>
+        <%= link_to 'Show', @task %> |
+        <%= link_to 'Back', tasks_path %>
+      </div>
+    </div>
+  </div>
+</div>

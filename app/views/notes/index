@@ -1,0 +1,57 @@
+<h1>Notes</h1>
+
+<%= search_form_for @q, url: search_notes_path do |f| %>
+  <%= f.label :note_title_cont, 'ノート名' %>
+  <%= f.search_field :note_title_cont %>
+  <br>
+  <%= f.submit '検索' %>
+<% end %>
+<%= form_tag notes_path, method: :get, class: 'boards__searchForm' do %>
+  <%= select_tag :label_id,
+                options_from_collection_for_select(Label.all, :id, :name, params[:label_id]),
+                {
+                  prompt: 'タグで絞り込み検索',
+                  onchange: 'submit(this.form);'
+                }
+  %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Note title</th>
+      <th>Text</th>
+      <th>Youtube</th>
+      <th>Label</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notes.each do |note| %>
+      <tr>
+        <td><%= note.note_title %></td>
+        <td><%= note.text %></td>
+        <td>
+          <%if note.youtube.present?%>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= note.youtube%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <% end%>
+        </td> 
+        <td>
+          <% note.labels.each do |note_label| %>
+            <%= note_label.name %>
+          <% end %>      
+        </td>
+        <td><%= note.user_id %></td>
+        <td><%= link_to 'Show', note %></td>
+        <td><%= link_to 'Edit', edit_note_path(note) %></td>
+        <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Note', new_note_path %>
