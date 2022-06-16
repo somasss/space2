@@ -25,7 +25,7 @@ https://docs.google.com/spreadsheets/d/1pq22uISjF9h5U7sjRDKKl1UVowcP7XpkITjO6TPV
 <img width="713" alt="スクリーンショット 2022-06-03 0 35 14" src="https://user-images.githubusercontent.com/96816547/171670843-4e9cbd72-c26a-48a1-9ea8-d2180995732c.png">
 
 # ERD  
-<img width="479" alt="スクリーンショット 2022-06-03 0 41 11" src="https://user-images.githubusercontent.com/96816547/171668622-ad0f05c7-6e22-4d0a-864b-d6ab4a79648c.png">
+<img width="500" alt="スクリーンショット 2022-06-17 3 52 14" src="https://user-images.githubusercontent.com/96816547/174144320-f2b4856c-c688-45bf-95da-437ccc137e94.png">
 
 # 画面遷移図
 <img width="432" alt="スクリーンショット 2022-06-01 23 01 45" src="https://user-images.githubusercontent.com/96816547/171425170-eec4553c-5c5d-4e8c-80b0-5d99c00652d0.png">
