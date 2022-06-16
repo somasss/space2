@@ -1,57 +1,67 @@
-<h1>Notes</h1>
+<main>
 
-<%= search_form_for @q, url: search_notes_path do |f| %>
-  <%= f.label :note_title_cont, 'ノート名' %>
-  <%= f.search_field :note_title_cont %>
-  <br>
-  <%= f.submit '検索' %>
-<% end %>
-<%= form_tag notes_path, method: :get, class: 'boards__searchForm' do %>
-  <%= select_tag :label_id,
-                options_from_collection_for_select(Label.all, :id, :name, params[:label_id]),
-                {
-                  prompt: 'タグで絞り込み検索',
-                  onchange: 'submit(this.form);'
-                }
-  %>
-<% end %>
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1><%= link_to 'Note', new_note_path, class: "fw-light" %></h1>
+        <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+        <a>
+          <%= search_form_for @q, url: search_notes_path do |f| %>
+            <%= f.label :note_title_cont, 'ノート名' %>
+            <%= f.search_field :note_title_cont %>
+            <%= f.submit '検索' %>
+          <% end %>
+          <%= form_tag notes_path, method: :get, class: 'boards__searchForm' do %>
+            <%= select_tag :label_id,
+                          options_from_collection_for_select(Label.all, :id, :name, params[:label_id]),
+                          {
+                            prompt: 'タグで絞り込み検索',
+                            onchange: 'submit(this.form);'
+                          }
+            %>
+          <% end %>
+        </a>
+        <div>
+          <%= paginate @notes %>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<table>
-  <thead>
-    <tr>
-      <th>Note title</th>
-      <th>Text</th>
-      <th>Youtube</th>
-      <th>Label</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div class="album py-5 bg-light">
+    <div class="container"> 
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <% @notes.each do |note| %>
+          <div class="col">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h5>
+                  <%if note.youtube.present?%>
+                  <iframe width="100%" height="300" src="https://www.youtube.com/embed/<%= note.youtube%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <% end %>
+                </h5><br>        
+                <h4>Title:<br>
+                  <%= note.note_title %>
+                </h4><br>
+                <h5>Text:<br>
+                  <%= note.text %>
+                </h5><br>  
+                <% note.labels.each do |note_label| %>
+                  <%= note_label.name %>
+                <% end %> 
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <%= link_to 'Show', note, class: "btn btn-sm btn-outline-secondary"%>
+                    <%= link_to 'Edit', edit_note_path(note), class: "btn btn-sm btn-outline-secondary" %>
+                    <%= button_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-outline-secondary" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-  <tbody>
-    <% @notes.each do |note| %>
-      <tr>
-        <td><%= note.note_title %></td>
-        <td><%= note.text %></td>
-        <td>
-          <%if note.youtube.present?%>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= note.youtube%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <% end%>
-        </td> 
-        <td>
-          <% note.labels.each do |note_label| %>
-            <%= note_label.name %>
-          <% end %>      
-        </td>
-        <td><%= note.user_id %></td>
-        <td><%= link_to 'Show', note %></td>
-        <td><%= link_to 'Edit', edit_note_path(note) %></td>
-        <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Note', new_note_path %>
+</main>

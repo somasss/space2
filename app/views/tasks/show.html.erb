@@ -1,24 +1,31 @@
-<p id="notice"><%= notice %></p>
+<div class="album py-5 bg-light">
+  <div class="box2 edit-form">
+    <p>
+      <strong>Task title:</strong>
+      <%= @task.task_title %>
+    </p>
 
-<p>
-  <strong>Task title:</strong>
-  <%= @task.task_title %>
-</p>
+    <p>
+      <strong>Due date:</strong>
+      <%= @task.due_date %>
+    </p>
 
-<p>
-  <strong>Due date:</strong>
-  <%= @task.due_date %>
-</p>
+    <p>
+      <strong>Task content:</strong>
+      <%= @task.task_content %>
+    </p>
 
-<p>
-  <strong>Task content:</strong>
-  <%= @task.task_content %>
-</p>
+    <p>
+      <strong>Status:</strong>
+      <%= @task.status %>
+    </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @task.status %>
-</p>
+    <p>
+      <strong>Memo:</strong>
+      <%= @task.task_content %>
+    </p>   
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+    <%= link_to 'Edit', edit_beat_path(@task) %> |
+    <%= link_to 'Back', tasks_path %>
+  </div>
+</div>
