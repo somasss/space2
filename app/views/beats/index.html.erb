@@ -4,22 +4,27 @@
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1><%= link_to 'Beat', new_beat_path, class: "fw-light" %></h1>
         <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-        <a>
-          <%= search_form_for @q, url: search_beats_path do |f| %>
-            <%= f.label :beat_title_cont, 'ビート名' %>
-            <%= f.search_field :beat_title_cont %>
-            <%= f.submit '検索' %>
-          <% end %>
-          <%= form_tag beats_path, method: :get, class: 'boards__searchForm' do %>
-                <%= select_tag :category_id,
-                              options_from_collection_for_select(Category.all, :id, :name, params[:category_id]),
-                              {
-                                prompt: 'タグで絞り込み検索',
-                                onchange: 'submit(this.form);'
-                              }
-                %>
-          <% end %>
-        </a>
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <a>
+            <%= search_form_for @q, url: search_beats_path do |f| %>
+              <%= f.label :beat_title_cont, 'ビート名' %>
+              <%= f.search_field :beat_title_cont %>
+              <%= f.submit '検索' %>
+              <%= form_tag beats_path, method: :get, class: 'boards__searchForm' do %>
+                    <%= select_tag :category_id,
+                                  options_from_collection_for_select(Category.all, :id, :name, params[:category_id]),
+                                  {
+                                    prompt: 'タグで絞り込み検索',
+                                    onchange: 'submit(this.form);'
+                                  }
+                    %>
+              <% end %>
+            <% end %>
+            <div>
+              <%= paginate @beats %>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -54,5 +59,4 @@
       </div>
     </div>
   </div>
-
 </main>

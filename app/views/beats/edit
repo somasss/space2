@@ -1,5 +1,0 @@
-<h1>Editing Beat</h1>
-
-<%= render 'form', beat: @beat %>
-<%= link_to 'Show', @beat %> |
-<%= link_to 'Back', beats_path %>

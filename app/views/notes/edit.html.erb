@@ -1,11 +1,9 @@
 <div class="album py-5 bg-light">
-  <div class= "edit-form">
-    <div class="box1">
-      <div class="edit-form">
-        <%= render 'form', note: @note %>
-        <%= link_to 'Show', @note %> |
-        <%= link_to 'Back', notes_path %>
-      </div>
+  <div class= "box2 edit-form">
+    <div class="edit-form">
+      <%= render 'form', note: @note %>
+      <%= link_to 'Show', @note %> |
+      <%= link_to 'Back', notes_path %>
     </div>
   </div>
 </div>
