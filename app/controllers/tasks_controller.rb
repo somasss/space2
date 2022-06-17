@@ -4,7 +4,7 @@ class TasksController < ApplicationController
 
   # GET /tasks or /tasks.json
   def index
-    @tasks = Task.all.where(user_id: current_user.id).page(params[:task]).per(1)
+    @tasks = Task.all.where(user_id: current_user.id).page(params[:page]).per(1)
     @tasks = params[:label_id].present? ? Label.find(params[:label_id]).tasks : @tasks
   end
 
