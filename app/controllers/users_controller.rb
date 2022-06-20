@@ -1,5 +1,12 @@
 class UsersController < ApplicationController
   before_action :set_data, only: %i[ show ]
+  before_action :authenticate_user!
+  
+  def index
+
+  end
+
+
   def show
     #タスクの成功率に関する式
     @success_task = @task.where(status: 1)

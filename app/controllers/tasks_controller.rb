@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   before_action :set_task, only: %i[ show edit update destroy ]
   before_action :set_q, only: [:index, :search]
+  before_action :authenticate_user!
 
   # GET /tasks or /tasks.json
   def index

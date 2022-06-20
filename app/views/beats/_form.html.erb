@@ -13,17 +13,17 @@
 
   <div class="field">
     <%= form.label :beat_title %>
-    <%= form.text_field :beat_title %>
+    <%= form.text_field :beat_title, :placeholder => "ビート名" %>
   </div>
 
   <div class="field">
     <%= form.label :sample_title %>
-    <%= form.text_field :sample_title %>
+    <%= form.text_field :sample_title, :placeholder => "元ネタ" %>
   </div>
 
   <div class="field">
     <%= form.label :sample_artist %>
-    <%= form.text_field :sample_artist %>
+    <%= form.text_field :sample_artist, :placeholder => "アーティスト" %>
   </div>
 
   <div class="field">
@@ -33,12 +33,12 @@
 
   <div class="field">
     <%= form.label :beat_time %>
-    <%= form.number_field :beat_time %>
+    <%= form.number_field :beat_time , :placeholder => "制作時間"%>
   </div>
 
   <div class="field">
     <%= form.label :memo %>
-    <%= form.text_area :memo %>
+    <%= form.text_area :memo, :placeholder => "メモ" %>
   </div>
 
   <div class="check_box">

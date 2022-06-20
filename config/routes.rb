@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'users#show'
+  root 'users#index'
   get "users/show" => "users#show"
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users do 
