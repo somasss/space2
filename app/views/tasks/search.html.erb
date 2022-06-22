@@ -1,35 +1,39 @@
-<h1>検索結果</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Task title</th>
-      <th>Due date</th>
-      <th>Task content</th>
-      <th>Status</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<main>
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1><%= link_to 'Task', new_task_path, class: "fw-light" %></h1>
+        <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+      </div>
+    </div>
+  </section>
 
-  <tbody>
-    <% @results.each do |task| %>
-      <tr>
-        <td><%= task.task_title %></td>
-        <td><%= task.due_date %></td>
-        <td><%= task.task_content %></td>
-        <td><%= task.status %></td>
-        <td>
-        <% task.labels.each do |tasklabel| %>
-          <%= tasklabel.name %>
-        <% end %>  
-        </td>
-        <td><%= task.user_id %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to 'Top', tasks_path %>
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <% @results.each do |task| %>
+          <div class="col">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h4>Title: <%= task.task_title %></h4><br>
+                <h5>Due-date: <%= task.due_date %></h5><br>  
+                <h5>Artist: <%= task.task_content %></h5><br>
+                <h4>Time: <%= task.status %></h4><br>
+                <% task.labels.each do |tasklabel| %>
+                  <%= tasklabel.name %>
+                <% end %>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <%= link_to 'Show', task_path(task.id), class: "btn btn-sm btn-outline-secondary"%>
+                    <%= link_to 'Edit', edit_task_path(task.id), class: "btn btn-sm btn-outline-secondary" %>
+                    <%= button_to 'Destroy', task_path(task.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-outline-secondary" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>

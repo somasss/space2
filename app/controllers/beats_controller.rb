@@ -1,10 +1,11 @@
 class BeatsController < ApplicationController
   before_action :set_beat, only: %i[ show edit update destroy ]
   before_action :set_q, only: [:index, :search]
+  before_action :authenticate_user!
 
   # GET /beats or /beats.json
   def index
-    @beats = Beat.all.where(user_id: current_user.id).page(params[:beat]).per(12)
+    @beats = Beat.all.where(user_id: current_user.id).page(params[:page]).per(1)
     @beats = params[:category_id].present? ?  Category.find(params[:category_id]).beats: @beats
   end
 
@@ -75,6 +76,6 @@ class BeatsController < ApplicationController
   end
 
   def set_q
-    @q = Beat.ransack(params[:q])
+    @q = Beat.all.ransack(params[:q])
   end 
 end

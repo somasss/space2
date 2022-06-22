@@ -6,6 +6,9 @@ class Task < ApplicationRecord
   validates :task_title, presence: true
   validates :due_date, presence: true
   validates :status, presence: true
+  validates :user_id, presence: true
+  validates :created_at, presence: true
+  validates :updated_at, presence: true
 
   def start_time
     self.due_date

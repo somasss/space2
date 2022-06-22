@@ -1,11 +1,12 @@
 class NotesController < ApplicationController
   before_action :set_note, only: %i[ show edit update destroy ]
   before_action :set_q, only: [:index, :search]
+  before_action :authenticate_user!
 
   # GET /notes or /notes.json
   def index
-    @notes = Note.all.where(user_id: current_user.id).page(params[:note]).per(12)
-    @notes = params[:label_id].present? ? Label.find(params[:label_id]).notes : @notes
+    @notes = Note.all.where(user_id: current_user.id).page(params[:page]).per(1)
+    @notes = params[:label_id].present? ? Label.find(params[:label_id]).notes : @notes.page(params[:page]).per(1)
   end
 
   # GET /notes/1 or /notes/1.json
@@ -79,6 +80,6 @@ class NotesController < ApplicationController
   end
 
   def set_q
-    @q = Note.ransack(params[:q])
+    @q = Note.all.where(user_id: current_user.id).ransack(params[:q])
   end 
 end

@@ -1,10 +1,11 @@
 class TasksController < ApplicationController
   before_action :set_task, only: %i[ show edit update destroy ]
   before_action :set_q, only: [:index, :search]
+  before_action :authenticate_user!
 
   # GET /tasks or /tasks.json
   def index
-    @tasks = Task.all.where(user_id: current_user.id).page(params[:task]).per(6)
+    @tasks = Task.all.where(user_id: current_user.id).page(params[:page]).per(1)
     @tasks = params[:label_id].present? ? Label.find(params[:label_id]).tasks : @tasks
   end
 
@@ -78,6 +79,6 @@ class TasksController < ApplicationController
   end
 
   def set_q
-    @q = Task.ransack(params[:q])
+    @q = Task.all.where(user_id: current_user.id).ransack(params[:q])
   end 
 end
