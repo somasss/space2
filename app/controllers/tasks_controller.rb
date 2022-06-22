@@ -79,6 +79,6 @@ class TasksController < ApplicationController
   end
 
   def set_q
-    @q = Task.ransack(params[:q])
+    @q = Task.all.where(user_id: current_user.id).ransack(params[:q])
   end 
 end

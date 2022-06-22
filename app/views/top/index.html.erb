@@ -1,0 +1,34 @@
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(function() {
+  setTimeout(function(){
+    $('.start p').fadeIn(1600);
+    },500); //0.5秒後にロゴをフェードイン!
+    setTimeout(function(){
+      $('.start').fadeOut(500);
+      },2500); //2.5秒後にロゴ含め真っ白背景をフェードアウト！
+      });
+      </script>
+<div class="start">
+    <p><img src="/assets/studio.png" alt=""></p>
+</div>
+
+
+<section class="py-5 text-center container tops-container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1><%= link_to 'Spaceship', new_user_session_path, method: :post, class: "fw-light" %></h1>
+        <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+

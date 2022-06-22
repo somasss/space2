@@ -76,6 +76,6 @@ class BeatsController < ApplicationController
   end
 
   def set_q
-    @q = Beat.ransack(params[:q])
+    @q = Beat.all.ransack(params[:q])
   end 
 end

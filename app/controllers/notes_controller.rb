@@ -80,6 +80,6 @@ class NotesController < ApplicationController
   end
 
   def set_q
-    @q = Note.ransack(params[:q])
+    @q = Note.all.where(user_id: current_user.id).ransack(params[:q])
   end 
 end

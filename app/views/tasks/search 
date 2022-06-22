@@ -1,0 +1,35 @@
+<h1>検索結果</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Task title</th>
+      <th>Due date</th>
+      <th>Task content</th>
+      <th>Status</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @results.each do |task| %>
+      <tr>
+        <td><%= task.task_title %></td>
+        <td><%= task.due_date %></td>
+        <td><%= task.task_content %></td>
+        <td><%= task.status %></td>
+        <td>
+        <% task.labels.each do |tasklabel| %>
+          <%= tasklabel.name %>
+        <% end %>  
+        </td>
+        <td><%= task.user_id %></td>
+        <td><%= link_to 'Show', task %></td>
+        <td><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Top', tasks_path %>
