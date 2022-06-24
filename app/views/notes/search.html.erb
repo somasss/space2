@@ -15,8 +15,8 @@
           <div class="col">
             <div class="card shadow-sm">
               <div class="card-body">
-                <h4>Title: <%= note.note_title %></h4><br>
-                <h5>Sample: <%= note.text %><</h5><br>  
+                <h4>タイトル: <%= note.note_title %></h4><br>
+                <h5>テキスト: <%= note.text %><</h5><br>  
                 <h5>
                   <%if note.youtube.present?%>
                     <iframe width="100%" height="auto" src="https://www.youtube.com/embed/<%= note.youtube%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

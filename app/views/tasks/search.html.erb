@@ -15,10 +15,10 @@
           <div class="col">
             <div class="card shadow-sm">
               <div class="card-body">
-                <h4>Title: <%= task.task_title %></h4><br>
-                <h5>Due-date: <%= task.due_date %></h5><br>  
-                <h5>Artist: <%= task.task_content %></h5><br>
-                <h4>Time: <%= task.status %></h4><br>
+                <h4>タイトル: <%= task.task_title %></h4><br>
+                <h5>期日: <%= task.due_date %></h5><br>  
+                <h5>内容: <%= task.task_content %></h5><br>
+                <h4>ステータス: <%= task.status %></h4><br>
                 <% task.labels.each do |tasklabel| %>
                   <%= tasklabel.name %>
                 <% end %>

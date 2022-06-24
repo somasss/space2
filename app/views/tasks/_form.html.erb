@@ -32,7 +32,7 @@
   </div>
 
   <div class="check_box">
-    <span>タグ</span>
+    <span>ラベル</span>
     <%= form.collection_check_boxes(:label_ids, Label.all, :id, :name) do |tasklabel| %>
      <div>
        <%= tasklabel.label do %>

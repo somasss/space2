@@ -16,7 +16,7 @@
                   <%= select_tag :label_id,
                             options_from_collection_for_select(Label.all, :id, :name, params[:label_id]),
                             {
-                              prompt: 'タグで絞り込み検索',
+                              prompt: 'ラベルで絞り込み検索',
                               onchange: 'submit(this.form);'
                             }
                   %>
@@ -38,20 +38,18 @@
           <div class="col">
             <div class="card shadow-sm">
               <div class="card-body">
-                <h5>
+                <h4>
                   <%if note.youtube.present?%>
                   <iframe width="100%" height="300" src="https://www.youtube.com/embed/<%= note.youtube%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                   <% end %>
-                </h5><br>        
-                <h4>Title:<br>
-                  <%= note.note_title %>
-                </h4><br>
-                <h5>Text:<br>
-                  <%= note.text %>
-                </h5><br>  
+                </h4><br>        
+                <h4>ノート名:<%= note.note_title %></h4><br>
+                <h4>内容:<%= note.text %></h4><br>  
+                <h4>ラベル:
                 <% note.labels.each do |note_label| %>
                   <%= note_label.name %>
                 <% end %> 
+                </h4>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <%= link_to 'Show', note, class: "btn btn-sm btn-outline-secondary"%>

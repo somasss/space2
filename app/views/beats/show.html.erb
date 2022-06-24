@@ -1,17 +1,17 @@
 <div class="album py-5 bg-light">
   <div class="box2 edit-form">
     <p>
-      <strong>Beat title:</strong>
+      <strong>ビート名:</strong>
       <%= @beat.beat_title %>
     </p>
 
     <p>
-      <strong>Sample title:</strong>
+      <strong>サンプル:</strong>
       <%= @beat.sample_title %>
     </p>
 
     <p>
-      <strong>Sample artist:</strong>
+      <strong>アーティスト:</strong>
       <%= @beat.sample_artist %>
     </p>
 
@@ -21,14 +21,21 @@
     </p>
 
     <p>
-      <strong>Beat time:</strong>
+      <strong>制作時間:</strong>
       <%= @beat.beat_time %>
     </p>
 
     <p>
-      <strong>Memo:</strong>
+      <strong>メモ:</strong>
       <%= @beat.memo %>
     </p>   
+
+    <p>
+      <strong>カテゴリー:</strong>
+      <% @beat.categories.each do |beatcategory| %>
+        <%= beatcategory.name %>
+      <% end %> 
+    </p>
 
     <%= link_to 'Edit', edit_beat_path(@beat) %> |
     <%= link_to 'Back', beats_path %>

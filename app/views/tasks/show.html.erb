@@ -1,29 +1,36 @@
 <div class="album py-5 bg-light">
   <div class="box2 edit-form">
     <p>
-      <strong>Task title:</strong>
+      <strong>タスク名:</strong>
       <%= @task.task_title %>
     </p>
 
     <p>
-      <strong>Due date:</strong>
+      <strong>期日:</strong>
       <%= @task.due_date %>
     </p>
 
     <p>
-      <strong>Task content:</strong>
+      <strong>内容:</strong>
       <%= @task.task_content %>
     </p>
 
     <p>
-      <strong>Status:</strong>
+      <strong>ステータス:</strong>
       <%= @task.status %>
     </p>
 
     <p>
-      <strong>Memo:</strong>
+      <strong>メモ:</strong>
       <%= @task.task_content %>
     </p>   
+
+    <p>
+      <strong>ラベル:</strong>
+      <% @task.labels.each do |task_label| %>
+        <%= task_label.name %>
+      <% end %>
+  </p>
 
     <%= link_to 'Edit', edit_beat_path(@task) %> |
     <%= link_to 'Back', tasks_path %>

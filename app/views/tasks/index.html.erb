@@ -24,7 +24,7 @@
                 <%= select_tag :label_id,
                               options_from_collection_for_select(Label.all, :id, :name, params[:label_id]),
                               {
-                                prompt: 'タグで絞り込み検索',
+                                prompt: 'ラベルで絞り込み検索',
                                 onchange: 'submit(this.form);'
                               }
                 %>
@@ -46,13 +46,15 @@
         <div class="col">
           <div class="card shadow-sm">
             <div class="card-body">
-              <h4>Title: <%= task.task_title %></h4><br>
-              <h5>Sample: <%= task.due_date %></h5><br>  
-              <h5>Artist: <%= task.task_content %></h5><br>
-              <h4>Time: <%= task.status %></h4><br>
+              <h4>タイトル: <%= task.task_title %></h4><br>
+              <h5>期日: <%= task.due_date %></h5><br>  
+              <h5>内容: <%= task.task_content %></h5><br>
+              <h4>ステータス: <%= task.status %></h4><br>
+              <h4>ラベル:
               <% task.labels.each do |tasklabel| %>
                 <%= tasklabel.name %>
               <% end %>  
+              </h4>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <%= link_to 'Show', task, class: "btn btn-sm btn-outline-secondary"%>

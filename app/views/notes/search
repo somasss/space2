@@ -10,7 +10,7 @@
           <%= select_tag :label_id,
                         options_from_collection_for_select(Label.all, :id, :name, params[:label_id]),
                         {
-                          prompt: 'タグで絞り込み検索',
+                          prompt: 'ラベルで絞り込み検索',
                           onchange: 'submit(this.form);'
                         }
           %>
