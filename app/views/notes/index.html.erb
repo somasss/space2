@@ -4,26 +4,29 @@
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1><%= link_to 'Note', new_note_path, class: "fw-light" %></h1>
+        <p>Noteをクリックして新規作成</p>
         <p class="lead text-muted">Lock yourself in a room doing 5 beats a day for 3 summers.</p>
-        <a>
-          <%= search_form_for @q, url: search_notes_path do |f| %>
-            <%= f.label :note_title_cont, 'ノート名' %>
-            <%= f.search_field :note_title_cont %>
-            <%= f.submit '検索' %>
-          <% end %>
-          <%= form_tag notes_path, method: :get, class: 'boards__searchForm' do %>
-            <%= select_tag :label_id,
-                          options_from_collection_for_select(Label.all, :id, :name, params[:label_id]),
-                          {
-                            prompt: 'タグで絞り込み検索',
-                            onchange: 'submit(this.form);'
-                          }
-            %>
-          <% end %>
-        </a>
-        
-          <%= paginate @notes %>
-      
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <a>
+            <%= search_form_for @q, url: search_notes_path do |f| %>
+              <%= f.label :note_title_cont, 'ノート名' %>
+              <%= f.search_field :note_title_cont %>
+              <%= f.submit '検索' %>
+                <%= form_tag notes_path, method: :get, class: 'boards__searchForm' do %>
+                  <%= select_tag :label_id,
+                            options_from_collection_for_select(Label.all, :id, :name, params[:label_id]),
+                            {
+                              prompt: 'タグで絞り込み検索',
+                              onchange: 'submit(this.form);'
+                            }
+                  %>
+                <% end %>
+            <% end %>   
+            <div>
+              <%= paginate @notes %>
+            </div>
+          </a>   
+        </div>
       </div>
     </div>
   </section>

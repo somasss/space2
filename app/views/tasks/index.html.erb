@@ -3,6 +3,7 @@
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <h1><%= link_to 'Task', new_task_path, class: "fw-light" %></h1>
+      <p>Taskをクリックして新規作成</p>
       <%= month_calendar events: @tasks do |date, tasks| %>
         <%= date.day %>
         <% tasks.each do |task| %>

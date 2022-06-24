@@ -12,22 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :task_title %>
+    <%= form.label :タスク名 %>
     <%= form.text_field :task_title, :placeholder => "タスク名" %>
   </div>
 
   <div class="field">
-    <%= form.label :due_date %>
+    <%= form.label :期限 %>
     <%= form.datetime_select :due_date %>
   </div>
 
   <div class="field">
-    <%= form.label :task_content %>
+    <%= form.label :内容 %>
     <%= form.text_area :task_content, :placeholder => "内容" %>
   </div>
 
   <div class="field">
-    <%= form.label :status %>
+    <%= form.label :ステータス %>
     <%= form.select :status, Task.statuses.keys, {prompt: "選択してください"} %>
   </div>
 
