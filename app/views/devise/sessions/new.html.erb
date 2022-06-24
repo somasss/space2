@@ -32,7 +32,8 @@
       <% end %>
       
       <%= render "devise/shared/links" %>
-      <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
+      <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %><br>
+      <%= link_to 'ゲスト管理者ログイン（閲覧用）', users_admin_guest_sign_in_path, method: :post %>
     </div>
   </div>
 </div>

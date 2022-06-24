@@ -69,7 +69,7 @@
                 <li>
                   <div>
                     <script async src="https://cse.google.com/cse.js?cx=951c5d4a5769d41e5"></script>
-                  <div class="gcse-search"></div>
+                    <div class="gcse-search"></div>
                   </div>
                 </li>
               <% end %>
