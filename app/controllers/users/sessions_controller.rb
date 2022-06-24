@@ -3,9 +3,17 @@
 class Users::SessionsController < Devise::SessionsController
 
   def guest_sign_in
-    user = User.guest
-    sign_in user
+    guest_user = User.guest
+    sign_in guest_user 
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+    binding.irb
+  end
+
+  def admin_guest_sign_in
+    admin_user = User.admin_guest
+    sign_in admin_user
+    redirect_to root_path, notice: 'ゲストadminユーザーとしてログインしました。'
+    binding.irb
   end
 
   # GET /resource/sign_in

@@ -6,7 +6,7 @@ class NotesController < ApplicationController
   # GET /notes or /notes.json
   def index
     @notes = Note.all.where(user_id: current_user.id).page(params[:page]).per(1)
-    @notes = params[:label_id].present? ? Label.find(params[:label_id]).notes : @notes.page(params[:page]).per(1)
+    @notes = params[:label_id].present? ? Label.find(params[:label_id]).notes : @notes.page(params[:page]).per(12)
   end
 
   # GET /notes/1 or /notes/1.json
