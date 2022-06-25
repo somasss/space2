@@ -68,7 +68,7 @@
                     <%= link_to "管理画面", rails_admin_path, {class: "global-navigation"} if current_user.admin == true %> 
                     </a></li>
                     <li><a class="global-navigation">
-                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "global-navigation" %>
                     </a></li>
                     <li>
                       <div>
