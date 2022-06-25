@@ -15,15 +15,17 @@
             <div class="card shadow-sm">
               <div class="card-body">
                 <h4>タイトル: <%= note.note_title %></h4><br>
-                <h5>テキスト: <%= note.text %><</h5><br>  
-                <h5>
+                <h4>テキスト: <%= note.text %></h4><br>  
+                <h4>
                   <%if note.youtube.present?%>
                     <iframe width="100%" height="auto" src="https://www.youtube.com/embed/<%= note.youtube%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                   <% end%>
-                </h5><br>
+                </h4><br>
+                <h4>ラベル:
                 <% note.labels.each do |note_label| %>
                   <%= note_label.name %>
                 <% end %>     
+                </h4>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <%= link_to '詳細', note_path(note.id), class: "btn btn-sm btn-outline-secondary"%>

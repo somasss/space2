@@ -15,14 +15,16 @@
             <div class="card shadow-sm">
               <div class="card-body">
                 <h4>タイトル: <%= beat.beat_title %></h4><br>
-                <h5>サンプル: <%= beat.sample_title %></h5><br>  
-                <h5>アーティスト: <%= beat.sample_artist %></h5><br>
+                <h4>サンプル: <%= beat.sample_title %></h4><br>  
+                <h4>アーティスト: <%= beat.sample_artist %></h4><br>
                 <%= audio_tag beat.audio_url, :controls => true if beat.audio? %><br>
                 <h4>制作時間: <%= beat.beat_time %></h4><br>
                 <h4>メモ: <%= beat.memo %></h4><br>
+                <h4>ラベル:
                 <% beat.categories.each do |beatcategory| %>
                   <%= beatcategory.name %>
                 <% end %>  
+                </h4>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <%= link_to 'Show', beat_path(beat.id), class: "btn btn-sm btn-outline-secondary"%>
