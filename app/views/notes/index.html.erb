@@ -1,11 +1,16 @@
 <main>
+  <% if notice %>
+    <p class="alert alert-notice"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-error"><%= alert %></p>
+  <% end %>
 
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1><%= link_to 'Note', new_note_path, class: "fw-light" %></h1>
-        <p>Noteをクリックして新規作成</p>
-        <p class="lead text-muted">Lock yourself in a room doing 5 beats a day for 3 summers.</p>
+        <h1><%= link_to 'ノート', new_note_path, class: "fw-light" %></h1>
+        <p>ノートをクリックして新規作成</p>
         <div class="col-lg-6 col-md-8 mx-auto">
           <a>
             <%= search_form_for @q, url: search_notes_path do |f| %>
@@ -52,9 +57,9 @@
                 </h4>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <%= link_to 'Show', note, class: "btn btn-sm btn-outline-secondary"%>
-                    <%= link_to 'Edit', edit_note_path(note), class: "btn btn-sm btn-outline-secondary" %>
-                    <%= button_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-outline-secondary" %>
+                    <%= link_to '詳細', note, class: "btn btn-sm btn-outline-secondary"%>
+                    <%= link_to '編集', edit_note_path(note), class: "btn btn-sm btn-outline-secondary" %>
+                    <%= button_to '削除', note, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-outline-secondary" %>
                   </div>
                 </div>
               </div>

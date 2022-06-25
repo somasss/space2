@@ -32,7 +32,7 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.save
-        format.html { redirect_to note_url(@note), notice: "Note was successfully created." }
+        format.html { redirect_to note_url(@note), notice: "ノートの制作に成功しました" }
         format.json { render :show, status: :created, location: @note }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -45,7 +45,7 @@ class NotesController < ApplicationController
   def update
     respond_to do |format|
       if @note.update(note_params)
-        format.html { redirect_to note_url(@note), notice: "Note was successfully updated." }
+        format.html { redirect_to note_url(@note), notice: "ノートの更新に成功しました" }
         format.json { render :show, status: :ok, location: @note }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -59,7 +59,7 @@ class NotesController < ApplicationController
     @note.destroy
 
     respond_to do |format|
-      format.html { redirect_to notes_url, notice: "Note was successfully destroyed." }
+      format.html { redirect_to notes_url, notice: "ノートの削除に成功しました" }
       format.json { head :no_content }
     end
   end

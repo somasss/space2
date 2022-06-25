@@ -1,9 +1,16 @@
 <main>
+  <% if notice %>
+    <p class="alert alert-notice"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-error"><%= alert %></p>
+  <% end %>
+
 
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class: "fw-light">DashBoard</h1>
+        <h1 class: "fw-light">ダッシュボード  </h1>
         </a>
       </div>
     </div>
@@ -16,13 +23,11 @@
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       <div class="col">
         <div class="card shadow-sm">
-          <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+          <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">総ビート数</text></svg>
           <div class="card-body">
             <p class="card-text">
-            <h1>総ビート数</h1><br>
             <h1>
-            <%= @user.beats.count %> /<%= @target_number %>
-            <%= number_to_percentage(@current_number, precision: 0) if @current_number.nan?  != true %>
+            <%= @user.beats.count %>  
             </h1>
             </p>
           </div>
@@ -31,10 +36,9 @@
 
       <div class="col">
         <div class="card shadow-sm">
-          <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+          <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">今週のビート数</text></svg>
           <div class="card-body">
             <p class="card-text">
-            <h1>今週のビート数</h1><br>
             <h1><%= @weekly_beats.count %></h1>
             </p>
           </div>
@@ -43,10 +47,9 @@
 
       <div class="col">
         <div class="card shadow-sm">
-          <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+          <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">平均時間</text></svg>
           <div class="card-body">
             <p class="card-text">
-            <h1>平均時間</h1><br>
             <h1><%= @average_time.floor if @average_time.nan?  != true  %>min</h1>
             </p>
           </div>
@@ -55,10 +58,9 @@
 
       <div class="col">
         <div class="card shadow-sm">
-          <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+          <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">タスク達成度</text></svg>
           <div class="card-body">
             <p class="card-text">
-            <h1>タスク達成率</h1><br>
             <h1><%= @success_task.count %> / <%= @task.count %></h1>
             </p>
           </div>

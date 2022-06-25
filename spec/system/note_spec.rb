@@ -74,7 +74,7 @@ RSpec.describe 'ノート管理機能', type: :system do
     context '任意のノート詳細画面に遷移した場合' do
       it '該当ノートの内容が表示される' do
         visit notes_path
-        click_on 'Show'
+        click_on '詳細'
         expect(page).to have_content'note'
       end
     end
@@ -96,7 +96,7 @@ RSpec.describe 'ノート管理機能', type: :system do
     context '任意のノートを編集した場合' do
       it '該当ノートの内容が変更される' do
         visit notes_path
-        click_on 'Edit'
+        click_on '編集'
         fill_in"note_note_title", with: "note2"
         click_on '更新する'
         visit notes_path
@@ -121,9 +121,9 @@ RSpec.describe 'ノート管理機能', type: :system do
     context '任意のノートを削除した場合' do
       it '該当ノートが削除される' do
         visit notes_path
-        click_on 'Destroy'
+        click_on '削除'
         page.driver.browser.switch_to.alert.accept
-        expect(page).to have_content'was successfully destroyed'
+        expect(page).to have_content'削除に成功しました'
       end
     end
   end

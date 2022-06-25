@@ -71,7 +71,7 @@ RSpec.describe 'タスク管理機能', type: :system do
     
     context '任意のタスク詳細画面に遷移した場合' do
       it '該当タスクの内容が表示される' do
-        click_on 'Show'
+        click_on '詳細'
         expect(page).to have_content'test'
       end
     end
@@ -93,7 +93,7 @@ RSpec.describe 'タスク管理機能', type: :system do
 
     context '任意のタスクを編集した場合' do
       it '該当タスクの内容が変更される' do
-        click_on 'Edit'
+        click_on '編集'
         fill_in "beat_beat_title", with: "test2"
         click_on '更新する'
         expect(page).to have_content'test2'
@@ -117,9 +117,9 @@ RSpec.describe 'タスク管理機能', type: :system do
     
     context '任意のタスクを削除した場合' do
       it '該当タスクが削除される' do
-        click_on 'Destroy'
+        click_on '削除'
         page.driver.browser.switch_to.alert.accept
-        expect(page).to have_content'was successfully destroyed'
+        expect(page).to have_content'削除に成功しました'
       end
     end
   end

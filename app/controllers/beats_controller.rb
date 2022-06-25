@@ -29,7 +29,7 @@ class BeatsController < ApplicationController
     
     respond_to do |format|
       if @beat.save
-        format.html { redirect_to beat_url(@beat), notice: "Beat was successfully created." }
+        format.html { redirect_to beat_url(@beat), notice: "ビートを作成に成功しました" }
         format.json { render :show, status: :created, location: @beat }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -41,7 +41,7 @@ class BeatsController < ApplicationController
   def update
     respond_to do |format|
       if @beat.update(beat_params)
-        format.html { redirect_to beat_url(@beat), notice: "Beat was successfully updated." }
+        format.html { redirect_to beat_url(@beat), notice: "ビートを更新に成功しました" }
         format.json { render :show, status: :ok, location: @beat }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -55,7 +55,7 @@ class BeatsController < ApplicationController
     @beat.destroy
 
     respond_to do |format|
-      format.html { redirect_to beats_url, notice: "Beat was successfully destroyed." }
+      format.html { redirect_to beats_url, notice: "ビートの削除に成功しました" }
       format.json { head :no_content }
     end
   end

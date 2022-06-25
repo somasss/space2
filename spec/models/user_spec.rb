@@ -41,13 +41,13 @@ RSpec.describe 'ユーザーモデルのテスト', type: :model do
     expect(user.valid?).to eq(false) 
   end
 
-  it "adminが空場合、無効である" do
+  it "adminが空場合、自動でfalseが入り有効になる" do
     user = User.new(
       name: "test",
       email: Faker::Internet.email,
       password: "password",
-      admin: "",
+      admin: nil,
     )
-    expect(user.valid?).to eq(false)
+    expect(user.valid?).to eq(true)
   end
 end

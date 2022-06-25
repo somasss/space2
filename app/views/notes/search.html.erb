@@ -2,8 +2,7 @@
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1><%= link_to 'Note', new_note_path, class: "fw-light" %></h1>
-        <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+        <h1><%= link_to 'ノート', notes_path, class: "fw-light" %></h1>
       </div>
     </div>
   </section>
@@ -27,9 +26,9 @@
                 <% end %>     
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <%= link_to 'Show', note_path(note.id), class: "btn btn-sm btn-outline-secondary"%>
-                    <%= link_to 'Edit', edit_note_path(note.id), class: "btn btn-sm btn-outline-secondary" %>
-                    <%= button_to 'Destroy', note_path(note.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-outline-secondary" %>
+                    <%= link_to '詳細', note_path(note.id), class: "btn btn-sm btn-outline-secondary"%>
+                    <%= link_to '編集', edit_note_path(note.id), class: "btn btn-sm btn-outline-secondary" %>
+                    <%= button_to '削除', note_path(note.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-outline-secondary" %>
                   </div>
                 </div>
               </div>

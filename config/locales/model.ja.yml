@@ -8,6 +8,7 @@ ja:
         password: パスワード
         password_confirmation: パスワード（確認用）
       beat:
+        beat: ビート
         beat_title: ビート名
         beat_time: 制作時間
       note:
@@ -18,5 +19,6 @@ ja:
         due_date: 期限
         task_content: 内容
         status: ステータス
+       
 
       
