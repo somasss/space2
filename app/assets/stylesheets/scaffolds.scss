@@ -14,14 +14,14 @@ pre {
   font-size: 11px; }
 
 a {
-  color: #000; }
+  color: #666; }
 
 a:visited {
   color: #666; }
 
 a:hover {
-  color: #fff;
-  background-color: #000; }
+  color: blue;
+   }
 
 th {
   padding-bottom: 5px; }
@@ -69,6 +69,7 @@ label {
 
 .alert {
   background-color: transparent;
+  padding: initial;
 }
 
 .card-body{
@@ -77,5 +78,14 @@ label {
   left: 0;                    
   right: 0;                  
   margin:  auto;
+}
+
+.field_with_errors{
+  display: initial;
+  background-color: initial;
+}
+
+.global-navigation {
+  color: white !important;
 }
 

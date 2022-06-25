@@ -1,0 +1,22 @@
+ja:
+  activerecord:
+    attributes:
+      user: 
+        email: Eメール
+        name: ユーザー名
+        admin: 管理者
+        password: パスワード
+        password_confirmation: パスワード（確認用）
+      beat:
+        beat_title: ビート名
+        beat_time: 制作時間
+      note:
+        note_title: ノート名
+        text: 内容
+      task:
+        task_title: タスク名
+        due_date: 期限
+        task_content: 内容
+        status: ステータス
+
+      
