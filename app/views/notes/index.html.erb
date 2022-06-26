@@ -9,12 +9,12 @@
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1><%= link_to 'ノート', new_note_path, class: "fw-light" %></h1>
-        <p>ノートをクリックして新規作成</p>
+        <h1><%= link_to 'ノート', new_note_path, class: "fw-light white" %></h1>
+        <p class= "white">ノートをクリックして新規作成</p>
         <div class="col-lg-6 col-md-8 mx-auto">
           <a>
             <%= search_form_for @q, url: search_notes_path do |f| %>
-              <%= f.label :note_title_cont, 'ノート名' %>
+              <%= f.label :note_title_cont, 'ノート名', class: "white" %>
               <%= f.search_field :note_title_cont %>
               <%= f.submit '検索' %>
                 <%= form_tag notes_path, method: :get, class: 'boards__searchForm' do %>

@@ -70,6 +70,7 @@ label {
 .alert {
   background-color: transparent;
   padding: initial;
+  color: white !important;
 }
 
 .card-body{
@@ -89,3 +90,7 @@ label {
   color: white !important;
 }
 
+main{
+ background-image: image-url('top.png');
+
+}

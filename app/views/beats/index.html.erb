@@ -8,12 +8,12 @@
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1><%= link_to 'ビート', new_beat_path, class: "fw-light" %></h1>
-        <p>ビートをクリックして新規作成</p>
+        <h1><%= link_to 'ビート', new_beat_path, class: "fw-light white" %></h1>
+        <p class= "white">ビートをクリックして新規作成</p>
         <div class="col-lg-6 col-md-8 mx-auto">
           <a>
             <%= search_form_for @q, url: search_beats_path do |f| %>
-              <%= f.label :beat_title_cont, 'ビート名' %>
+              <%= f.label :beat_title_cont, 'ビート名', class: "white" %>
               <%= f.search_field :beat_title_cont %>
               <%= f.submit '検索' %>
               <%= form_tag beats_path, method: :get, class: 'boards__searchForm' do %>
