@@ -14,7 +14,7 @@ $(function() {
     <p><%= image_tag "rocket.png" ,class:"top-img" %></p>
 </div>
 
-
+<div class="top">
 <section class="py-5 text-center container tops-container">
   <% if notice %>
     <p class="alert alert-notice"><%= notice %></p>
@@ -24,8 +24,8 @@ $(function() {
   <% end %>
   <div class="row py-lg-5">
     <div class="col-lg-6 col-md-8 mx-auto">
-      <h1><%= link_to 'Spaceship', new_user_session_path, method: :post, class: "fw-light" %></h1>
-      <p>現在、ソフトウェアの進歩により誰でも気軽にパソコンひとつで音楽制作ができるようになった<br>
+      <h1><%= link_to 'Spaceship', new_user_session_path, method: :post, class: "fw-light white" %></h1>
+      <p class="white">現在、ソフトウェアの進歩により誰でも気軽にパソコンひとつで音楽制作ができるようになった<br>
       しかし、音楽制作には正解が無い為、途中で挫折する人が多い。<br>
       また、現在、音楽制作スキルの向上に特化したアプリケーションがない。<br>
       Spaceshipは正解のない音楽制作に対して実証的なアプローチをし、
@@ -34,21 +34,22 @@ $(function() {
       常に新しい技術を取り入れることの大切さをインタビューで語っている。<br>
       Spaceshipは、上記3点が音楽制作において最も大切な要素だと考え、
       それらを伸ばし、ユーザーの制作スキルの向上を実現します。</p>
-      <p>ビート機能<br>
+      <p class="white">ビート機能<br>
       日々の投稿を元に制作スピード、制作数、総制作時間を可視化し、
       自身の制作時間の正確な把握の実現
       </p>
-      <p>タスク機能<br>
+      <p class="white">タスク機能<br>
       期限付きのタスク機能により短期間での目標立て、
       また、実現度を数値化し、自身の目標に対するコミット度合いの可視化し、
       自身の実行力を客観的に把握</p>
-      <p>ノート機能<br>
+      <p class="white">ノート機能<br>
       ノート機能で参考になりそうな動画や記事をストックし、
       新しい技術の習得のサポート。</p>
       
     </div>
   </div>
 </section>
+<div>
 
 
 

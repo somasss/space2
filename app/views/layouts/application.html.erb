@@ -42,33 +42,33 @@
           <div class="row">
             <div class="col-sm-8 col-md-7 py-4">
               <h4 class="text-white">About</h4>
-              <p class="global-navigation">スペースシップは音楽制作を効果的に行うためのタスク管理ツールです。</p>
-              <p class="global-navigation">Beats機能<br>日々の投稿を元に制作スピード、制作数、総制作時間を可視化し、自身の制作時間の正確な把握の実現</p>
-              <p class="global-navigation">タスク機能<br>期限付きのタスク機能により短期間での目標立て、また、実現度を数値化し、自身の目標に対するコミット度合いの可視化し、自身の実行力を客観的に把握</p>
-              <p class="global-navigation">Note機能<br>Note機能で参考になりそうな動画や記事をストックし、新しい技術の習得のサポート。</p>
-              <p class="global-navigation">Dashboard機能<br>総ビート数や目標に対する達成度など活動を客観的に確認。</p>
+              <p class="white">スペースシップは音楽制作を効果的に行うためのタスク管理ツールです。</p>
+              <p class="white">Beats機能<br>日々の投稿を元に制作スピード、制作数、総制作時間を可視化し、自身の制作時間の正確な把握の実現</p>
+              <p class="white">タスク機能<br>期限付きのタスク機能により短期間での目標立て、また、実現度を数値化し、自身の目標に対するコミット度合いの可視化し、自身の実行力を客観的に把握</p>
+              <p class="white">Note機能<br>Note機能で参考になりそうな動画や記事をストックし、新しい技術の習得のサポート。</p>
+              <p class="white">Dashboard機能<br>総ビート数や目標に対する達成度など活動を客観的に確認。</p>
             </div>
             <% if user_signed_in? %>
               <div class="col-sm-4 offset-md-1 py-4">
                 <h4 class="text-white">Contact</h4>
                   <ul class="list-unstyled">
                     <li><a class="text-white">
-                    <%= link_to "ビート", beats_path, {class: "global-navigation"} %>
+                    <%= link_to "ビート", beats_path, {class: "white"} %>
                     </a></li>
                     <li><a  class="text-white">
-                    <%= link_to "ノート", notes_path, {class: "global-navigation"} %>
+                    <%= link_to "ノート", notes_path, {class: "white"} %>
                     </a></li>
                     <li><a class="text-white">
-                    <%= link_to "タスク", tasks_path, {class: "global-navigation"} %>
+                    <%= link_to "タスク", tasks_path, {class: "white"} %>
                     </a></li>
                     <li><a class="text-white">
-                    <%= link_to "ダッシュボード", users_show_path, {class: "global-navigation"} %>
+                    <%= link_to "ダッシュボード", users_show_path, {class: "white"} %>
                     </a></li>
                     <li><a class="text-white">
-                    <%= link_to "管理画面", rails_admin_path, {class: "global-navigation"} if current_user.admin == true %> 
+                    <%= link_to "管理画面", rails_admin_path, {class: "white"} if current_user.admin == true %> 
                     </a></li>
-                    <li><a class="global-navigation">
-                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "global-navigation" %>
+                    <li><a class="white">
+                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "white" %>
                     </a></li>
                     <li>
                       <div>
@@ -83,10 +83,10 @@
               <h4 class="text-white">Contact</h4>
                 <ul class="list-unstyled">
                   <li><a class= "text-white">
-                  <%= link_to "ログイン", new_user_session_path, {class: "global-navigation"}%>
+                  <%= link_to "ログイン", new_user_session_path, {class: "white"}%>
                   </a></li>
                   <li><a class="text-white">
-                  <%= link_to "新規登録", new_user_registration_path, {class: "global-navigation"} %>
+                  <%= link_to "新規登録", new_user_registration_path, {class: "white"} %>
                   </a></li>
                 </ul>
               </div>
