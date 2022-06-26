@@ -14,10 +14,14 @@
 	transform: translate(-50%, -50%);
 	display: none;
 	z-index: 9999;
-	width: 280px;
 }
 
 
 .tops-container{
 	min-height: 650px;
+}
+
+.top-img{
+	min-width: 80%;
+	position: center;
 }
