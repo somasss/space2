@@ -92,5 +92,14 @@ label {
 
 main{
  background-image: image-url('top.png');
+}
 
+.login-alert{
+  background-color: transparent;
+  padding: initial;
+  position: relative;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  color: black !important;
 }
