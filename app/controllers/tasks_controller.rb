@@ -6,7 +6,6 @@ class TasksController < ApplicationController
   # GET /tasks or /tasks.json
   def index
     @tasks = Task.all.where(user_id: current_user.id).page(params[:page]).per(12)
-    @tasks = params[:label_id].present? ? Label.find(params[:label_id]).tasks : @tasks
   end
 
   # GET /tasks/1 or /tasks/1.json
@@ -80,5 +79,11 @@ class TasksController < ApplicationController
 
   def set_q
     @q = Task.all.where(user_id: current_user.id).ransack(params[:q])
+    
   end 
+
+  def set_task_label
+
+  end
+
 end

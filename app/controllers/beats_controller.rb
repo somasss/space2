@@ -6,7 +6,7 @@ class BeatsController < ApplicationController
   # GET /beats or /beats.json
   def index
     @beats = Beat.all.where(user_id: current_user.id).page(params[:page]).per(12)
-    @beats = params[:category_id].present? ?  Category.find(params[:category_id]).beats: @beats
+    @beats = params[:category_id].present? ? Category.find(params[:category_id]).beats: @beats
   end
 
   # GET /beats/1 or /beats/1.json

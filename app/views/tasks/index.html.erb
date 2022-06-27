@@ -26,15 +26,7 @@
             <%= f.label :task_title_cont, 'タスク名' %>
             <%= f.search_field :task_title_cont %>
             <%= f.submit '検索' %>
-              <%= form_tag tasks_path, method: :get, class: 'boards__searchForm' do %>
-                <%= select_tag :label_id,
-                              options_from_collection_for_select(Label.all, :id, :name, params[:label_id]),
-                              {
-                                prompt: 'ラベルで絞り込み検索',
-                                onchange: 'submit(this.form);'
-                              }
-                %>
-              <% end %>
+              <%= f.collection_select :labels_name_cont, Label.all, :id, :name, :include_blank => '指定なし' %>
           <% end %>
           <div>
             <%= paginate @tasks %>
