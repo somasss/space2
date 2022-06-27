@@ -15,9 +15,9 @@
           <a>
             <%= search_form_for @q, url: search_notes_path do |f| %>
               <%= f.label :note_title_cont, 'ノート名', class: "white" %>
-              <%= f.search_field :note_title_cont %>
+              <%= f.search_field :note_title_cont, class: "note-search" %>
               <%= f.collection_select :labels_name_cont, Label.all, :name, :name, :include_blank => '指定なし' %>
-              <%= f.submit '検索' %>
+              <%= f.submit '検索'  %>
             <% end %>   
             <div>
               <%= paginate @notes %>

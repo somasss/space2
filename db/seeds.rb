@@ -21,7 +21,7 @@ Category.create([
         )
 end
 
-user = User.create(name: "TestUser",email: Faker::Internet.email, password: Faker::Internet.password(min_length: 6),)
+user = User.create(name: "ゲストユーザー",email: "guest@example.com", password: "password",)
 
 5.times do |n|
     Beat.create(
