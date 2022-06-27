@@ -15,16 +15,8 @@
             <%= search_form_for @q, url: search_beats_path do |f| %>
               <%= f.label :beat_title_cont, 'ビート名', class: "white" %>
               <%= f.search_field :beat_title_cont %>
+              <%= f.collection_select :categories_name_cont, Category.all, :name, :name, :include_blank => '指定なし' %>
               <%= f.submit '検索' %>
-              <%= form_tag beats_path, method: :get, class: 'boards__searchForm' do %>
-                    <%= select_tag :category_id,
-                                  options_from_collection_for_select(Category.all, :id, :name, params[:category_id]),
-                                  {
-                                    prompt: 'カテゴリーで絞り込み検索',
-                                    onchange: 'submit(this.form);'
-                                  }
-                    %>
-              <% end %>
             <% end %>
             <div>
               <%= paginate @beats %>

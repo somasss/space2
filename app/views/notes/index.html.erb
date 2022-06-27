@@ -16,16 +16,8 @@
             <%= search_form_for @q, url: search_notes_path do |f| %>
               <%= f.label :note_title_cont, 'ノート名', class: "white" %>
               <%= f.search_field :note_title_cont %>
+              <%= f.collection_select :labels_name_cont, Label.all, :name, :name, :include_blank => '指定なし' %>
               <%= f.submit '検索' %>
-                <%= form_tag notes_path, method: :get, class: 'boards__searchForm' do %>
-                  <%= select_tag :label_id,
-                            options_from_collection_for_select(Label.all, :id, :name, params[:label_id]),
-                            {
-                              prompt: 'ラベルで絞り込み検索',
-                              onchange: 'submit(this.form);'
-                            }
-                  %>
-                <% end %>
             <% end %>   
             <div>
               <%= paginate @notes %>

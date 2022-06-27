@@ -61,11 +61,16 @@ class TasksController < ApplicationController
   end
 
   def search
-    @results = @q.result
+    @results = @q.result.includes(:tasklabels)
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
+
+    def search_params
+      params.require(:q).permit(:labels_name_cont)
+    end
 
 
   def set_task
@@ -79,11 +84,6 @@ class TasksController < ApplicationController
 
   def set_q
     @q = Task.all.where(user_id: current_user.id).ransack(params[:q])
-    
   end 
-
-  def set_task_label
-
-  end
 
 end
