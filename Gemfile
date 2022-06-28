@@ -44,7 +44,7 @@ gem 'launchy'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'capistrano', '3.16.0' # capistranoのツール一式
+  gem 'capistrano', '3.17.0' # capistranoのツール一式
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
