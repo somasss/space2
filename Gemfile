@@ -34,6 +34,7 @@ gem 'kaminari'
 gem 'letter_opener_web'
 gem 'spring'
 gem 'spring-watcher-listen', '~> 2.0.0'
+gem 'unicorn'
 
 gem 'rspec-rails'
 gem 'spring-commands-rspec'
@@ -44,7 +45,13 @@ gem 'launchy'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  
+  gem 'capistrano', '3.16.0' # capistranoのツール一式
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 
 end
 
