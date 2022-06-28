@@ -35,7 +35,6 @@ gem 'letter_opener_web'
 gem 'spring'
 gem 'spring-watcher-listen', '~> 2.0.0'
 gem 'unicorn'
-
 gem 'rspec-rails'
 gem 'spring-commands-rspec'
 gem 'factory_bot_rails'
