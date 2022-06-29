@@ -1,15 +1,19 @@
 class UsersController < ApplicationController
-  before_action :set_data, only: %i[ show ]
+  before_action :set_data
   before_action :authenticate_user!
   
   def index
+    def index
 
+    end
   end
 
 
   def show
     #タスクの成功率に関する式
     @success_task = @task.where(status: 1)
+    @user_foller = @user.followers
+    @user_follow = @user.following
 
     #ビートの平均時間を求める式
     total_time = 0
@@ -33,6 +37,7 @@ class UsersController < ApplicationController
   private 
 
   def set_data
+    @users = User.all
     @user = current_user
     @task = @user.tasks
     @beats = @user.beats 

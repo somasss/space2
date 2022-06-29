@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
+  get 'relationships/create'
+  get 'relationships/destroy'
   root 'top#index'
   get "users/show" => "users#show"
+  get "users/index" => "users#index" 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users do 
     post 'sing_in' => user_session
   end
+  resources :relationships, only: [:create, :destroy]
   resources :tasks do
     collection do
       get 'search'

@@ -1,0 +1,41 @@
+<section>
+
+<main>
+  <% if notice %>
+    <p class="alert alert-notice"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-error"><%= alert %></p>
+  <% end %>
+
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class= "fw-light white"> フォロー </h1>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <% @users.each do |user| %>
+        <div class="col">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h4>名前: <%= user.name %></h4><br>
+              <h4>メール: <br><%= user.email %></h4>
+              <h4><%= render 'follow_form', user: user %></h4>
+            </div>
+          </div>
+        </div>
+      <% end %>
+  </div>
+</div>
+
+</section>
+
