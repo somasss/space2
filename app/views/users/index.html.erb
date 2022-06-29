@@ -23,16 +23,16 @@
 <div class="album py-5 bg-light">
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-    <% @users.each do |user| %>
-        <div class="col">
-          <div class="card shadow-sm">
-            <div class="card-body">
-              <h4>名前: <%= user.name %></h4><br>
-              <h4>メール: <br><%= user.email %></h4>
-              <h4><%= render 'follow_form', user: user %></h4>
+      <% @users.each do |user| %>
+          <div class="col">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h4>名前: <%= user.name %></h4><br>
+                <h4>メール:<br> <%= user.email %></h4>
+                <h4><%= render 'follow_form', user: user %></h4>
+              </div>
             </div>
           </div>
-        </div>
       <% end %>
   </div>
 </div>

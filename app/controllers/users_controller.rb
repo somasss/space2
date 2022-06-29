@@ -3,9 +3,8 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    def index
-
-    end
+    @users = @users.where.not(id: current_user.id)
+    
   end
 
 
